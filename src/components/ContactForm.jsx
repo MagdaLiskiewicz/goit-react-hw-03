@@ -14,10 +14,12 @@ const FeedbackSchema = Yup.object().shape({
   name: Yup.string()
     .min(3, "Too Short!")
     .max(50, "Too Long!")
+    .matches(/^[A-Za-z\s-]+$/, "Name must be a valid!")
     .required("Name is required"),
   number: Yup.string()
-    .min(3, "Too Short!")
+    .min(7, "Too Short!")
     .max(50, "Too Long!")
+    .matches(/^\d{3}-\d{2}-\d{2}$/, "Number must be in the format XXX-XXX-XXXX")
     .required("Number is required"),
 });
 
